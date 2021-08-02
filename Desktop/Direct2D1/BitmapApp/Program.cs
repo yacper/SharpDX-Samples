@@ -24,6 +24,7 @@ using System.Runtime.InteropServices;
 using SharpDX;
 using SharpDX.Direct2D1;
 using SharpDX.DXGI;
+using SharpDX.Mathematics.Interop;
 using SharpDX.Samples;
 
 using AlphaMode = SharpDX.Direct2D1.AlphaMode;
@@ -96,8 +97,11 @@ namespace BitmapApp
         {
             base.Draw(time);
 
+            SharpDX.Mathematics.Interop.RawRectangleF rect = new RawRectangleF(0, 0, 100, 100);
+
+
             // Draw the TextLayout
-            RenderTarget2D.DrawBitmap(_bitmap, 1.0f, BitmapInterpolationMode.Linear);
+            RenderTarget2D.DrawBitmap(_bitmap, rect, 1.0f, BitmapInterpolationMode.Linear);
         }
 
 
